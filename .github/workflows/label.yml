@@ -1,0 +1,22 @@
+#此工作流将分类拉请求，并根据
+#在pull请求中修改的路径。
+#
+#要使用这个工作流，需要设置.github/labeler.yml
+#带配置的文件。详情请参阅：
+# https://github.com/actions/labeler
+
+名字: 贴标签机
+在: [pull_request_target]
+
+工作:
+标签:
+
+    runs-on: ubuntu-latest
+权限:
+内容: 阅读
+      pull-requests: 写
+
+步骤:
+    - 用途: actions/labeler@v4
+与:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
